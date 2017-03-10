@@ -1,0 +1,48 @@
+{
+  "name": "docute-emojify",
+  "version": "0.1.0",
+  "description": "Docute plugin for supporting GitHub style emoji within Markdown.",
+  "keywords": [
+    "docute",
+    "plugin",
+    "emoji",
+    "markdown"
+  ],
+  "homepage": "https://github.com/hkwu/docute-emojify#readme",
+  "bugs": {
+    "url": "https://github.com/hkwu/docute-emojify/issues"
+  },
+  "license": "MIT",
+  "author": "Kelvin Wu <kelvinwu1996@gmail.com>",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hkwu/docute-emojify.git"
+  },
+  "scripts": {
+    "build": "webpack --env.target=dev && webpack --env.target=production",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "test": "",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.4.0",
+    "babel-preset-env": "^1.2.1",
+    "eslint": "^3.17.1",
+    "eslint-config-airbnb-base": "^11.1.1",
+    "eslint-loader": "^1.6.3",
+    "eslint-plugin-import": "^2.2.0",
+    "mocha": "^3.0.2",
+    "webpack": "^2.2.1",
+    "webpack-merge": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=4"
+  }
+}
