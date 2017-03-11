@@ -30,7 +30,9 @@
     "test": "npm run lint",
     "prepublishOnly": "npm test && npm run build"
   },
-  "dependencies": {},
+  "dependencies": {
+    "object-assign": "^4.1.1"
+  },
   "devDependencies": {
     "bili": "^0.14.0",
     "chalk": "^1.1.3",
