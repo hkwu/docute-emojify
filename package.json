@@ -26,24 +26,14 @@
     "build": "bili --name docute-emojify --module-name docuteEmojify --format umd --compress",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "test": "",
-    "prepublishOnly": "npm run build && npm test"
+    "test": "npm run lint",
+    "prepublishOnly": "npm test && npm run build"
   },
   "dependencies": {},
   "devDependencies": {
-    "babel-core": "^6.23.1",
-    "babel-loader": "^6.4.0",
-    "babel-preset-env": "^1.2.1",
     "bili": "^0.14.0",
     "eslint": "^3.17.1",
     "eslint-config-airbnb-base": "^11.1.1",
-    "eslint-loader": "^1.6.3",
-    "eslint-plugin-import": "^2.2.0",
-    "mocha": "^3.0.2",
-    "webpack": "^2.2.1",
-    "webpack-merge": "^4.0.0"
-  },
-  "engines": {
-    "node": ">=4"
+    "eslint-plugin-import": "^2.2.0"
   }
 }
