@@ -2,7 +2,7 @@
 [![npm](https://img.shields.io/npm/v/docute-emojify.svg?style=flat-square)](https://www.npmjs.com/package/docute-emojify)
 [![npm](https://img.shields.io/npm/dm/docute-emojify.svg?style=flat-square)](https://www.npmjs.com/package/docute-emojify)
 
-[Docute](https://docute.js.org) plugin for supporting emoji aliases within Markdown.
+[Docute](https://docute.js.org) plugin for transforming emoji aliases within Markdown.
 
 ## Installation
 Get the UMD build and place it before `config.js` inside your `index.html` file:
@@ -65,4 +65,4 @@ docuteEmojify({
 });
 ```
 
-Now `:100:` and `:+1` will render as typed rather than as an emoji character.
+This will make `:100:` and `:+1:` render as typed rather than as an emoji character.
