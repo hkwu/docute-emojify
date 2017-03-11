@@ -23,7 +23,7 @@
     "url": "git+https://github.com/hkwu/docute-emojify.git"
   },
   "scripts": {
-    "build": "webpack --env.target=dev && webpack --env.target=production",
+    "build": "bili --name docute-emojify --module-name docuteEmojify --format umd --compress",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "test": "",
@@ -34,6 +34,7 @@
     "babel-core": "^6.23.1",
     "babel-loader": "^6.4.0",
     "babel-preset-env": "^1.2.1",
+    "bili": "^0.14.0",
     "eslint": "^3.17.1",
     "eslint-config-airbnb-base": "^11.1.1",
     "eslint-loader": "^1.6.3",
