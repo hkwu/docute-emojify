@@ -17,25 +17,35 @@ function escapeRegExp(string) {
  * @param {Object} [options.aliases={}] - Additional emoji aliases to use. Keys
  *   are the original emoji aliases. Values can be a string or an array of strings
  *   representing the additional aliases to add.
+ * @param {string[]} [options.blacklist=[]] - Emoji aliases which will be ignored
+ *   when emojifying Markdown.
  * @returns {Function} The Docute plugin.
  */
 export default function docuteEmojify(options = {}) {
   const {
     aliases = {},
+    blacklist = [],
   } = options;
 
+  const blacklistHash = blacklist.reduce((accumulated, alias) => {
+    if (typeof alias === 'string') {
+      accumulated[alias] = true;
+    }
+
+    return accumulated;
+  }, {});
   const additionalAliases = Object.keys(aliases).reduce((accumulated, alias) => {
-    if (!emoji.hasOwnProperty(alias)) { // eslint-disable-line no-prototype-builtins
+    if (!emoji.hasOwnProperty(alias)) {
       return accumulated;
     }
 
     const aliasValue = aliases[alias];
 
     if (typeof aliasValue === 'string' && aliasValue.trim()) {
-      accumulated[aliasValue.trim()] = emoji[alias]; // eslint-disable-line no-param-reassign
+      accumulated[aliasValue.trim()] = emoji[alias];
     } else if (Array.isArray(aliasValue)) {
       aliasValue.filter(value => typeof value === 'string' && value.trim()).forEach((value) => {
-        accumulated[value.trim()] = emoji[alias]; // eslint-disable-line no-param-reassign
+        accumulated[value.trim()] = emoji[alias];
       });
     }
 
@@ -43,7 +53,10 @@ export default function docuteEmojify(options = {}) {
   }, {});
 
   const mergedAliases = objectAssign(emoji, additionalAliases);
-  const ALIAS_REGEX = Object.keys(mergedAliases).map(alias => escapeRegExp(alias)).join('|');
+  const ALIAS_REGEX = Object.keys(mergedAliases)
+    .filter(alias => !Object.prototype.hasOwnProperty.call(blacklistHash, alias))
+    .map(alias => escapeRegExp(alias))
+    .join('|');
   const EMOJI_REGEX = new RegExp(`(\`+)[\\s\\S]+?\\1|:(${ALIAS_REGEX}):`, 'g');
 
   const replacer = (match, ticks, alias) => (emoji[alias] || match);

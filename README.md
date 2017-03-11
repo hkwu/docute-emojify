@@ -2,7 +2,7 @@
 [![npm](https://img.shields.io/npm/v/docute-emojify.svg?style=flat-square)](https://www.npmjs.com/package/docute-emojify)
 [![npm](https://img.shields.io/npm/dm/docute-emojify.svg?style=flat-square)](https://www.npmjs.com/package/docute-emojify)
 
-[Docute](https://docute.js.org) plugin for supporting emoji aliases within Markdown. Requires Docute >=2.9.
+[Docute](https://docute.js.org) plugin for supporting emoji aliases within Markdown.
 
 ## Installation
 Get the UMD build and place it before `config.js` inside your `index.html` file:
@@ -20,6 +20,8 @@ self.$config = {
   ],
 };
 ```
+
+This plugin requires Docute >=2.9.
 
 ## Usage
 Emoji aliases will be replaced with their respective Unicode characters within your Markdown documents. For instance,
@@ -50,3 +52,17 @@ docuteEmojify({
 ```
 
 This will replace `:hundo:` with 💯 and `:thunking:` or `:thonk:` with 🤔.
+
+### Blacklisting Aliases
+Aliases may be blacklisted by providing an array of aliases as the `blacklist` option.
+
+```js
+docuteEmojify({
+  blacklist: [
+    '100',
+    '+1',
+  ],
+});
+```
+
+Now `:100:` and `:+1` will render as typed rather than as an emoji character.
