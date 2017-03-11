@@ -17,7 +17,7 @@
   "files": [
     "dist"
   ],
-  "main": "dist/index.js",
+  "main": "dist/docute-emojify.min.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hkwu/docute-emojify.git"
