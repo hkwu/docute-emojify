@@ -25,17 +25,17 @@ export default function docuteEmojify(options = {}) {
   } = options;
 
   const additionalAliases = Object.keys(aliases).reduce((accumulated, alias) => {
-    if (!emoji.hasOwnProperty(alias)) {
+    if (!emoji.hasOwnProperty(alias)) { // eslint-disable-line no-prototype-builtins
       return accumulated;
     }
 
     const aliasValue = aliases[alias];
 
     if (typeof aliasValue === 'string' && aliasValue.trim()) {
-      accumulated[aliasValue.trim()] = emoji[alias];
+      accumulated[aliasValue.trim()] = emoji[alias]; // eslint-disable-line no-param-reassign
     } else if (Array.isArray(aliasValue)) {
       aliasValue.filter(value => typeof value === 'string' && value.trim()).forEach((value) => {
-        accumulated[value.trim()] = emoji[alias];
+        accumulated[value.trim()] = emoji[alias]; // eslint-disable-line no-param-reassign
       });
     }
 
