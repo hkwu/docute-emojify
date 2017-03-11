@@ -2,7 +2,7 @@
 [![npm](https://img.shields.io/npm/v/docute-emojify.svg?style=flat-square)](https://www.npmjs.com/package/docute-emojify)
 [![npm](https://img.shields.io/npm/dm/docute-emojify.svg?style=flat-square)](https://www.npmjs.com/package/docute-emojify)
 
-[Docute](https://docute.js.org) plugin for supporting GitHub style emoji aliases within Markdown. Requires Docute >=2.9.
+[Docute](https://docute.js.org) plugin for supporting emoji aliases within Markdown. Requires Docute >=2.9.
 
 ## Installation
 Get the UMD build and place it before `config.js` inside your `index.html` file:
@@ -49,4 +49,4 @@ docuteEmojify({
 });
 ```
 
-This allows you to replace `:hundo:` with 💯 and `:thunking:` or `:thonk:` with 🤔.
+This will replace `:hundo:` with 💯 and `:thunking:` or `:thonk:` with 🤔.
