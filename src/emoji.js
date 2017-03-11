@@ -1,5 +1,5 @@
 /**
- * Mapping of emoji codes to characters.
+ * Mapping of emoji aliases to characters.
  * @type {Object}
  * @const
  */
