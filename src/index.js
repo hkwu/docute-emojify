@@ -14,7 +14,9 @@ function escapeRegExp(string) {
 /**
  * Plugin which replaces emoji colon forms with their equivalent unicode character.
  * @param {Object} [options={}] - The options for the plugin.
- * @param {Object} [options.aliases={}] - Additional emoji aliases to use.
+ * @param {Object} [options.aliases={}] - Additional emoji aliases to use. Keys
+ *   are the original emoji aliases. Values can be a string or an array of strings
+ *   representing the additional aliases to add.
  * @returns {Function} The Docute plugin.
  */
 export default function docuteEmojify(options = {}) {

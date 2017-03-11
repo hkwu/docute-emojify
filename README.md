@@ -33,3 +33,20 @@ will render as
 > This is **Markdown** with 💯 emoji support 👌
 
 All emoji aliases are scraped from the [gemoji](https://github.com/github/gemoji) repository.
+
+### Adding Aliases
+You can add additional aliases for existing emoji by providing an `aliases` object when you configure the plugin.
+
+```js
+docuteEmojify({
+  aliases: {
+    100: 'hundo',
+    thinking: [
+      'thunking',
+      'thonk',
+    ],
+  },
+});
+```
+
+This allows you to replace `:hundo:` with 💯 and `:thunking:` or `:thonk:` with 🤔.
