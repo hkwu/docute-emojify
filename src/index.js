@@ -34,6 +34,7 @@ export default function docuteEmojify(options = {}) {
 
     return accumulated;
   }, {});
+
   const additionalAliases = Object.keys(aliases).reduce((accumulated, alias) => {
     if (!emoji.hasOwnProperty(alias)) {
       return accumulated;
