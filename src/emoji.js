@@ -1,7 +1,6 @@
 /**
  * Mapping of emoji aliases to characters.
  * @type {Object}
- * @const
  */
 export default {
   100: '💯',
