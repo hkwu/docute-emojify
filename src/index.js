@@ -54,15 +54,14 @@ export default function docuteEmojify(options = {}) {
   }, {});
 
   const mergedAliases = objectAssign(emoji, additionalAliases);
-  const ALIAS_REGEX = Object.keys(mergedAliases)
+  const aliasRegex = Object.keys(mergedAliases)
     .filter(alias => !Object.prototype.hasOwnProperty.call(blacklistHash, alias))
     .map(alias => escapeRegExp(alias))
     .join('|');
-  const EMOJI_REGEX = new RegExp(`(\`+)[\\s\\S]+?\\1|:(${ALIAS_REGEX}):`, 'g');
-
+  const emojiRegex = new RegExp(`(\`+)[\\s\\S]+?\\1|:(${aliasRegex}):`, 'g');
   const replacer = (match, ticks, alias) => (emoji[alias] || match);
 
   return ({ beforeParse }) => {
-    beforeParse(markdown => markdown.replace(EMOJI_REGEX, replacer));
+    beforeParse(markdown => markdown.replace(emojiRegex, replacer));
   };
 }

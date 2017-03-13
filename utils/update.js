@@ -7,7 +7,7 @@ const { version } = require('../package.json');
 const EMOJI_DATA = 'https://raw.githubusercontent.com/github/gemoji/master/db/emoji.json';
 const EMOJI_PATH = path.resolve(__dirname, '../src/emoji.js');
 
-console.log(`${chalk.yellow('Fetching emoji data from')} ${chalk.green(EMOJI_DATA)}${chalk.yellow('.')}`);
+console.log(`${chalk.yellow('Fetching emoji data from ')}${chalk.green(EMOJI_DATA)}${chalk.yellow('.')}`);
 
 got(EMOJI_DATA, {
   'User-Agent': `docute-emojify/${version} (https://github.com/hkwu/docute-emojify)`,
