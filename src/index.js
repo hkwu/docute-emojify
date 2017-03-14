@@ -19,12 +19,15 @@ function escapeRegExp(string) {
  *   representing the additional aliases to add.
  * @param {string[]} [options.blacklist=[]] - Emoji aliases which will be ignored
  *   when emojifying Markdown.
+ * @param {boolean} [options.emojifyCode=false] - Whether or not to transform
+ *   aliases found in Markdown code formatting.
  * @returns {Function} The Docute plugin.
  */
 export default function docuteEmojify(options = {}) {
   const {
     aliases = {},
     blacklist = [],
+    emojifyCode = false,
   } = options;
 
   const blacklistHash = blacklist.reduce((accumulated, alias) => {
@@ -58,7 +61,7 @@ export default function docuteEmojify(options = {}) {
     .filter(alias => !Object.prototype.hasOwnProperty.call(blacklistHash, alias))
     .map(alias => escapeRegExp(alias))
     .join('|');
-  const emojiRegex = new RegExp(`(\`+)[\\s\\S]+?\\1|:(${aliasRegex}):`, 'g');
+  const emojiRegex = new RegExp(emojifyCode ? `():(${aliasRegex}):` : `(\`+)[\\s\\S]+?\\1|:(${aliasRegex}):`, 'g');
   const replacer = (match, ticks, alias) => (emoji[alias] || match);
 
   return ({ beforeParse }) => {
