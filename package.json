@@ -1,6 +1,6 @@
 {
   "name": "docute-emojify",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Docute plugin for transforming emoji aliases within Markdown.",
   "keywords": [
     "docute",
