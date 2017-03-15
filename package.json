@@ -24,7 +24,7 @@
   },
   "scripts": {
     "build": "bili --name docute-emojify --module-name docuteEmojify --format umd --compress",
-    "build:emoji": "node utils/update.js && eslint src/emoji.js --fix",
+    "update:emoji": "node utils/update.js && eslint src/emoji.js --fix",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "test": "npm run lint",
