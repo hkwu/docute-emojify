@@ -79,6 +79,8 @@ docuteEmojify({
 We will now see
 
 ````markdown
+See emoji code below `:+1:`
+
 ```
 :100:
 ```
@@ -86,6 +88,8 @@ We will now see
 
 render as
 
-```
-💯
-```
+> See emoji code below `👍`
+>
+> ```
+> 💯
+> ```
