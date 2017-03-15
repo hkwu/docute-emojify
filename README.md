@@ -66,3 +66,26 @@ docuteEmojify({
 ```
 
 This will make `:100:` and `:+1:` render as typed rather than as an emoji character.
+
+### Emojifying Code
+By default, aliases found in code formatting (i.e. surrounded by matching backticks) are not transformed. This behaviour can be toggled using the `emojifyCode` option.
+
+```js
+docuteEmojify({
+  emojifyCode: true,
+});
+```
+
+We will now see
+
+````markdown
+```
+:100:
+```
+````
+
+render as
+
+```
+💯
+```
