@@ -5,20 +5,20 @@
 [Docute](https://docute.js.org) plugin for transforming emoji aliases within Markdown.
 
 ## Installation
-Get the UMD build and place it before `config.js` inside your `index.html` file:
+Get the UMD build and load it before you initialize Docute inside your `index.html` file:
 
 ```html
 <script src="https://unpkg.com/docute-emojify"></script>
 ```
 
-Then, configure the plugin within `config.js`.
+Then, configure the plugin.
 
 ```js
-self.$config = {
+docute.init({
   plugins: [
     docuteEmojify(),
   ],
-};
+});
 ```
 
 This plugin requires Docute >=2.9.
