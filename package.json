@@ -23,7 +23,7 @@
     "url": "git+https://github.com/hkwu/docute-emojify.git"
   },
   "scripts": {
-    "build": "bili --name docute-emojify --module-name docuteEmojify --format umd --compress",
+    "build": "bili --name docute-emojify --module-name docuteEmojify --format umd,umd-min",
     "update:emoji": "node utils/update.js && eslint src/emoji.js --fix",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
