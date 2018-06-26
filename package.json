@@ -36,7 +36,7 @@
   "devDependencies": {
     "bili": "^3.1.2",
     "chalk": "^2.4.1",
-    "eslint": "4",
+    "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-import": "^2.13.0",
     "got": "^8.3.1"
