@@ -21,7 +21,7 @@ docute.init({
 });
 ```
 
-This plugin requires Docute >=2.9.
+This plugin requires Docute v3.
 
 ## Usage
 Emoji aliases will be replaced with their respective Unicode characters within your Markdown documents. For instance,
