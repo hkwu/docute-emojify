@@ -2,7 +2,7 @@
 [![npm](https://img.shields.io/npm/v/docute-emojify.svg?style=flat-square)](https://www.npmjs.com/package/docute-emojify)
 [![npm](https://img.shields.io/npm/dm/docute-emojify.svg?style=flat-square)](https://www.npmjs.com/package/docute-emojify)
 
-[Docute](https://docute.js.org) plugin for transforming emoji aliases within Markdown.
+[Docute](https://v3.docute.org) plugin for transforming emoji aliases within Markdown.
 
 ## Installation
 Get the UMD build and load it before you initialize Docute inside your `index.html` file:
