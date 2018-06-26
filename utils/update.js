@@ -7,26 +7,29 @@ const { version } = require('../package.json');
 const EMOJI_DATA = 'https://raw.githubusercontent.com/github/gemoji/master/db/emoji.json';
 const EMOJI_PATH = path.resolve(__dirname, '../src/emoji.js');
 
-console.log(`${chalk.yellow('Fetching emoji data from ')}${chalk.green(EMOJI_DATA)}${chalk.yellow('.')}`);
+console.log(chalk`{yellow Fetching emoji data from} {green ${EMOJI_DATA}}{yellow .}`);
 
-got(EMOJI_DATA, {
-  'User-Agent': `docute-emojify/${version} (https://github.com/hkwu/docute-emojify)`,
-}).then((response) => {
-  const entries = JSON.parse(response.body);
-  const scraped = {};
-
-  entries.filter(entry => entry.emoji).forEach(({ emoji, aliases }) => {
-    aliases.forEach((alias) => {
-      scraped[alias] = emoji;
+(async () => {
+  try {
+    const { body } = await got(EMOJI_DATA, {
+      'User-Agent': `docute-emojify/${version} (https://github.com/hkwu/docute-emojify)`,
     });
-  });
+    const entries = JSON.parse(body);
+    const scraped = {};
 
-  const stringified = JSON.stringify(scraped, null, 2);
-  const emojiFile = fs.readFileSync(EMOJI_PATH, 'utf8');
+    entries.filter(entry => entry.emoji).forEach(({ emoji, aliases }) => {
+      aliases.forEach((alias) => {
+        scraped[alias] = emoji;
+      });
+    });
 
-  fs.writeFileSync(EMOJI_PATH, emojiFile.replace(/(export default )\{[\s\S]+}/, `$1${stringified}`));
+    const stringified = JSON.stringify(scraped, null, 2);
+    const emojiFile = fs.readFileSync(EMOJI_PATH, 'utf8');
 
-  console.log(chalk.green('Success!'));
-}).catch((error) => {
-  console.error(chalk.red(error));
-});
+    fs.writeFileSync(EMOJI_PATH, emojiFile.replace(/(export default )\{[\s\S]+}/, `$1${stringified}`));
+
+    console.log(chalk`{green Success!}`);
+  } catch (error) {
+    console.error(chalk`{red ${error}}`);
+  }
+})();
