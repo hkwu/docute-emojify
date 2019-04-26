@@ -23,25 +23,22 @@
     "url": "git+https://github.com/hkwu/docute-emojify.git"
   },
   "scripts": {
-    "build": "bili --name docute-emojify --module-name docuteEmojify --format umd,umd-min",
+    "build": "bili --file-name docute-emojify[min].js --module-name docuteEmojify --format umd,umd-min",
     "update:emoji": "node utils/update.js && eslint src/emoji.js --fix",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "test": "npm run lint",
     "prepublishOnly": "npm test && npm run build"
   },
-  "dependencies": {
-    "object-assign": "^4.1.1"
-  },
   "devDependencies": {
-    "bili": "^3.1.2",
+    "bili": "^4.7.3",
     "chalk": "^2.4.1",
-    "eslint": "^4.19.1",
+    "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-import": "^2.13.0",
-    "got": "^8.3.1"
+    "got": "^9.6.0"
   },
   "peerDependencies": {
-    "docute": "^3.4.12"
+    "docute": "^4.13.6"
   }
 }
