@@ -1,4 +1,3 @@
-import objectAssign from 'object-assign';
 import emoji from './emoji';
 
 /**
@@ -56,7 +55,7 @@ export default function docuteEmojify(options = {}) {
     return accumulated;
   }, {});
 
-  const mergedAliases = objectAssign(emoji, additionalAliases);
+  const mergedAliases = Object.assign(emoji, additionalAliases);
   const aliasRegex = Object.keys(mergedAliases)
     .filter(alias => !Object.prototype.hasOwnProperty.call(blacklistHash, alias))
     .map(alias => escapeRegExp(alias))
@@ -64,7 +63,10 @@ export default function docuteEmojify(options = {}) {
   const emojiRegex = new RegExp(emojifyCode ? `():(${aliasRegex}):` : `(\`+)[\\s\\S]+?\\1|:(${aliasRegex}):`, 'g');
   const replacer = (match, ticks, alias) => (emoji[alias] || match);
 
-  return ({ beforeParse }) => {
-    beforeParse(markdown => markdown.replace(emojiRegex, replacer));
+  return {
+    name: 'docute-emojify',
+    extend(api) {
+      api.processMarkdown(markdown => markdown.replace(emojiRegex, replacer));
+    },
   };
 }
