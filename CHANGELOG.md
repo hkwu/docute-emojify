@@ -3,7 +3,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## Unreleased
+## [Unreleased]
+### Added
+- Support for Docute v4.
+
+### Removed
+- Support for Docute v3.
+
 ## [0.2.0] - 2018-06-26
 ### Added
 - Up to date emoji aliases.

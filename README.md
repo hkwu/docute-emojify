@@ -2,7 +2,7 @@
 [![npm](https://img.shields.io/npm/v/docute-emojify.svg?style=flat-square)](https://www.npmjs.com/package/docute-emojify)
 [![npm](https://img.shields.io/npm/dm/docute-emojify.svg?style=flat-square)](https://www.npmjs.com/package/docute-emojify)
 
-[Docute](https://v3.docute.org) plugin for transforming emoji aliases within Markdown.
+[Docute](https://docute.org) plugin for transforming emoji aliases within Markdown.
 
 ## Installation
 Get the UMD build and load it before you initialize Docute inside your `index.html` file:
@@ -14,14 +14,14 @@ Get the UMD build and load it before you initialize Docute inside your `index.ht
 Then, configure the plugin.
 
 ```js
-docute.init({
+new Docute({
   plugins: [
     docuteEmojify(),
   ],
 });
 ```
 
-This plugin requires Docute v3.
+This plugin requires Docute v4.
 
 ## Usage
 Emoji aliases will be replaced with their respective Unicode characters within your Markdown documents. For instance,
